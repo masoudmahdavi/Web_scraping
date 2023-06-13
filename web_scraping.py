@@ -10,12 +10,11 @@ ctx.verify_mode = ssl.CERT_NONE
 
 url = input("Enter : ")
 html = urllib.request.urlopen(url, context=ctx).read()
-print(html)
 soup = BeautifulSoup(html, 'html.parser')
 
 tags = soup('a')
 web_address_counter = {}
 for tag in tags:
     web_address_counter[tag.get('href', None)] = web_address_counter.get(tag.get('href', None),1) + 1
-#print(web_address_counter)
+print(web_address_counter)
 
